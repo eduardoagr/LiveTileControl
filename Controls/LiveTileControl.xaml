@@ -1,0 +1,59 @@
+<ContentView
+    x:Class="LiveTileControl.Controls.LiveTileControl"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:controls="clr-namespace:LiveTileControl.Controls"
+    xmlns:fonts="clr-namespace:Fonts"
+    x:Name="Tile"
+    x:DataType="controls:LiveTileControl">
+
+    <Grid
+        BackgroundColor="{Binding TileColor}"
+        BindingContext="{Binding Source={Reference Tile}}"
+        HeightRequest="{Binding TileHeight}"
+        WidthRequest="{Binding TileWidth}">
+
+        <!--  Front View  -->
+        <Grid
+            x:Name="FrontView"
+            IsVisible="True">
+
+            <Label
+                FontFamily="{Binding IconFontFamily}"
+                FontSize="{Binding IconFontSize}"
+                HorizontalOptions="Center"
+                Text="{Binding IconGlyph}"
+                TextColor="{Binding IconFontColor}"
+                VerticalOptions="Center" />
+
+            <Label
+                x:Name="TitleLabel"
+                Margin="{Binding TitleMargin}"
+                FontAttributes="{Binding TitleFontAttributes}"
+                FontFamily="{Binding TitleFontFamily}"
+                FontSize="{Binding TitleFontSize}"
+                HorizontalOptions="Start"
+                Text="{Binding Title}"
+                TextColor="{Binding TitleFontColor}"
+                VerticalOptions="Start" />
+        </Grid>
+
+        <!--  Back View  -->
+        <Grid
+            x:Name="BackView"
+            BackgroundColor="{Binding TileColor}"
+            IsVisible="False">
+            <Label
+                FontAttributes="{Binding TitleFontAttributes}"
+                FontSize="{Binding TitleFontSize}"
+                HorizontalOptions="Center"
+                Text="{Binding DataMember}"
+                TextColor="{Binding TitleFontColor}"
+                VerticalOptions="Center" />
+        </Grid>
+
+    </Grid>
+
+
+
+</ContentView>

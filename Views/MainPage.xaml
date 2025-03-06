@@ -1,0 +1,24 @@
+﻿<ContentPage
+    x:Class="LiveTileControl.MainPage"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:control="clr-namespace:LiveTileControl.Controls"
+    xmlns:font="clr-namespace:Fonts"
+    xmlns:vm="clr-namespace:LiveTileControl.ViewModel"
+    x:DataType="vm:MainPageViewModel">
+
+    <StackLayout Padding="0">
+        <control:LiveTileControl
+            Title="My live tile"
+            DataMember="{Binding Data}"
+            IconFontColor="White"
+            IconFontFamily="FluentUI"
+            IconGlyph="{Static font:FluentUI.people_12_regular}"
+            TileColor="Green"
+            TileSize="Large"
+            TileTransparency="10"
+            TitleFontSize="14"
+            TitlePosition="LowerLeft" />
+    </StackLayout>
+
+</ContentPage>
