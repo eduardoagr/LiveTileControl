@@ -16,7 +16,7 @@ public partial class LiveTileControl : ContentView {
         FrontView.RotationY = 0;
 
         BackView.IsVisible = false;
-        BackView.RotationY = 0;
+        BackView.RotationY = -90;
 
     }
 
@@ -332,11 +332,11 @@ public partial class LiveTileControl : ContentView {
 
     private void FlipTile() {
         var frontToBackAnimation = new Animation(
-            (f) => this.RotationY = f,
+            (f) => RotationY = f,
             0, 90, Easing.Linear);
 
         var backToFrontAnimation = new Animation(
-            (f) => this.RotationY = f,
+            (f) => RotationY = f,
             -90, 0, Easing.Linear);
 
         frontToBackAnimation.Commit(
