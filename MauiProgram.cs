@@ -20,6 +20,7 @@ public static class MauiProgram {
         builder.Services.AddSingleton<MainPageViewModel>();
         builder.Services.AddSingleton<ApiService>();
         builder.Services.AddTransient<MainPage>();
+        builder.Services.AddSingleton<Controls.LiveTileControl>();
 
         return builder.Build();
     }
