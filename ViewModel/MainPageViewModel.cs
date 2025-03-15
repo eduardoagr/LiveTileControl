@@ -6,22 +6,16 @@ namespace LiveTileControl.ViewModel {
     public partial class MainPageViewModel : ObservableObject {
 
         private readonly ApiService _apiService;
-        private Controls.LiveTileControl _liveTileControl;
         IDispatcherTimer _timer;
 
         [ObservableProperty]
         private string? _data;
 
-        public MainPageViewModel(ApiService apiService, Controls.LiveTileControl liveTileControl) {
+        public MainPageViewModel(ApiService apiService) {
 
             _apiService = apiService;
-            _liveTileControl = liveTileControl;
             _timer = Application.Current?.Dispatcher?.CreateTimer() ?? throw new InvalidOperationException("Dispatcher is not available.");
 
-            // Ensure LiveTileControl is registered to listen for updates
-            WeakReferenceMessenger.Default.Register<string>(this, async (recipient, message) => {
-                await liveTileControl.UpdateTileSafely(message);
-            });
 
             InitializeAsync();
 
